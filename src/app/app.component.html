@@ -1,2 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <router-outlet></router-outlet>
+<ngb-toast header="Notification header">
+  Content of the notification
+</ngb-toast>
+<ngb-toast *ngIf="toastParams.show" header="Success" [delay]="5000" [autohide]="autohide" (mouseenter)="autohide = false"
+  (mouseleave)="toastParams.autohide = true" (hide)="toastParams.show = false; autohide = true"
+  [class.bg-warning]="!toastParams.autohide">
+  {{ toastParams.message }}
+</ngb-toast>

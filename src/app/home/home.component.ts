@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
     private auth: AuthService,
     private router: Router,
     private store: Store<any>,
-    private toast: ToastService
   ) { }
 
   ngOnInit() {
@@ -48,10 +47,6 @@ export class HomeComponent implements OnInit {
   }
   logout() {
     this.auth.logout().subscribe((item) => {
-      this.toast.show('Successfully logged out', {
-        classname: 'bg-success text-light',
-        delay: 1000
-      });
       this.isLoggedIn = false;
       this.router.navigate(['/']);
       this.store.dispatch({
