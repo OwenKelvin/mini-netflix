@@ -1,0 +1,33 @@
+<nav id="navbar-example2" class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <ul class="nav nav-pills">
+    <li *ngIf="!isLoggedIn" class="nav-item">
+      <a [routerLink]="['/register']" class="nav-link" >Sign Up</a>
+    </li>
+    <li class="nav-item" *ngIf="!isLoggedIn">
+      <a [routerLink]="['/login']" class="nav-link">Login</a>
+    </li>
+
+     <li *ngIf="isLoggedIn" class="nav-item" ngbDropdown aria-label="User Profile Button">
+       <a class="nav-link" href="#Login" ngbDropdownToggle>
+           {{ user.displayName ? 'Hello ' + user.displayName : auth.user?.email }}
+       </a>
+       <div class="dropdown-menu" ngbDropdownMenu>
+           <a ngbDropdownItem href="#one">My Movies</a>
+           <a (click)="logout()" ngbDropdownItem href="#">Logout</a>
+       </div>
+     </li>
+  </ul>
+</nav>
+<ngb-toast *ngIf="show" header="Success" [delay]="5000" [autohide]="autohide"
+  (mouseenter)="autohide = false" (mouseleave)="autohide = true" (hide)="show = false; autohide = true"
+  [class.bg-warning]="!autohide">
+  <div *ngIf="autohide">
+    Try to mouse hover me.
+  </div>
+  <div *ngIf="!autohide">
+    I will remain visible until you leave again.
+  </div>
+</ngb-toast>
+
+<router-outlet></router-outlet>
