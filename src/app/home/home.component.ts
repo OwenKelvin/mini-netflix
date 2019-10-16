@@ -38,8 +38,6 @@ export class HomeComponent implements OnInit {
           if (this.auth.user) {
             this.user = this.auth.user;
           }
-          console.log(this.auth);
-          // this.updateUserDetails();
 
         }
       });
