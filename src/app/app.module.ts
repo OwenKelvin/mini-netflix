@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,10 +16,21 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store/reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { AllMoviesCarouselComponent } from './home/all-movies-carousel/all-movies-carousel.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, MyMoviesComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    MyMoviesComponent,
+    HomeComponent,
+    AllMoviesCarouselComponent
+  ],
   imports: [
+    HttpClientModule,
+    BrowserAnimationsModule,
+    CarouselModule,
     NgbModule,
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -32,7 +44,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,
-        strictActionImmutability: true,
+        strictActionImmutability: true
       }
     }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
@@ -43,7 +55,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         strictActionImmutability: true
       }
     }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

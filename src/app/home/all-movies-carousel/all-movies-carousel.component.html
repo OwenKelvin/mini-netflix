@@ -1,0 +1,15 @@
+<owl-carousel-o [options]="customOptions">
+  <ng-container *ngFor="let slide of displayMovies; let i = index">
+    <ng-template carouselSlide [id]="slide.id">
+      <img [src]="imageUrl + slide.poster_path" [alt]="slide.alt" [title]="slide.title">
+      <section style="text-align: center;">
+        <span class="pl-1">{{ slide.title }}</span> <span>({{ slide.release_date | date:'yyyy' }})</span>
+      </section>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>
+<section style="overflow: scroll;">
+  <ngb-pagination [(page)]="displayRange.currentPage" (pageChange)="pageChange()" [pageSize]="displayRange.size"
+    [collectionSize]="movieDetails.total_movies">
+  </ngb-pagination>
+</section>

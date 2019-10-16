@@ -1,0 +1,18 @@
+{
+  "name": "mini-netflix-backend",
+  "version": "1.0.0",
+  "description": "This is the back end for our mini app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mini-netflix"
+  ],
+  "author": "Owen Kelvin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "request": "^2.88.0"
+  }
+}
