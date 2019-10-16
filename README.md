@@ -12,6 +12,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Open the source files and rename *`src/environments/environment.env.ts`* to *`src/environments/environment.ts`*
 - rename *`src/environments/environment.prod.env.ts`* to *`src/environments/environment.prod.ts`*
 - Go to [FireBase Console](https://console.firebase.google.com/u/0/) and create a new Firebase app on your Firebase console with your Google Account by clicking on “Add project” and typing your app name e.g app-mini-netflix
+- click on “Add Firebase to your web app”, and copy the config keys into src/environments/environment.ts(do the same for environment-prod.ts)
 
 ```javascript
 export const environment = {
@@ -29,7 +30,6 @@ export const environment = {
 }
 ```
 
-- click on “Add Firebase to your web app”, and copy the config keys into src/environments/environment.ts(do the same for environment-prod.ts)
 - Once the App is created Go  to authentication => Add User and add a user
 - Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 **You are set to go...**
