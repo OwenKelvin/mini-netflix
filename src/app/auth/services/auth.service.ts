@@ -56,7 +56,7 @@ export class AuthService {
   // }
   logout(): Observable<any> {
     localStorage.removeItem('user');
-    return of(this.afAuth.auth.signOut());
+    return from(this.afAuth.auth.signOut());
   }
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));

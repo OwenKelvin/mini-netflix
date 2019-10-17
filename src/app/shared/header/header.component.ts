@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth/services/auth.service';
 import { Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { map } from 'rxjs/operators';
-import { AUTH_USER_LOGGED_IN } from '../auth/store/actions';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { SEARCH_REQUEST } from '../search/store/actions';
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { AUTH_USER_LOGGED_IN } from 'src/app/auth/store/actions';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HeaderComponent implements OnInit {
   user: any;
   isLoggedIn: boolean;
   searchForm: FormGroup;
@@ -62,12 +61,5 @@ export class HomeComponent implements OnInit {
     if (this.isLoggedIn) {
       this.user = this.auth.getUser();
     }
-  }
-  goToSearch() {
-    this.store.dispatch({
-      type: SEARCH_REQUEST,
-      payload: this.searchForm.get('search').value
-    });
-    this.router.navigate(['/search']);
   }
 }

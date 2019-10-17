@@ -10,23 +10,23 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import * as fromAuth from './store/reducers';
 import { StoreModule } from '@ngrx/store';
+import { LoginFormComponent } from './login/login-form/login-form.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     EmailComponent,
     SignupComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    LoginFormComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     NgbAlertModule,
     ReactiveFormsModule,
-    StoreModule.forFeature(
-      fromAuth.authFeatureKey,
-      fromAuth.reducer
-    )
-  ]
+    StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer)
+  ],
+  entryComponents: [LoginFormComponent]
 })
 export class AuthModule {}

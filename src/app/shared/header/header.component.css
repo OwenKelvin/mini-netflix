@@ -1,12 +1,14 @@
 .page {
   margin-top: -50px;
 }
+
 .page-title {
   text-align: center;
   font-size: 90px;
   line-height: 80px;
   font-weight: 800;
   color: rgb(231, 67, 67);
+ 
 }
 
 .page-title-description {
@@ -15,4 +17,5 @@
   line-height: 40px;
   font-weight: 500;
   letter-spacing: 8px;
+   padding-bottom: 25px;
 }

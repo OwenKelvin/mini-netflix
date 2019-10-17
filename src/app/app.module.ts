@@ -19,15 +19,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AllMoviesCarouselComponent } from './home/all-movies-carousel/all-movies-carousel.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchModule } from './search/search.module';
+import { SharedModule } from './shared/shared.module';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyMoviesComponent,
-    HomeComponent,
-    AllMoviesCarouselComponent
   ],
   imports: [
+    SharedModule,
     HttpClientModule,
     BrowserAnimationsModule,
     CarouselModule,
@@ -58,9 +60,11 @@ import { HttpClientModule } from '@angular/common/http';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
-    })
+    }),
+    SearchModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: []
 })
 export class AppModule {}

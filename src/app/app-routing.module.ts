@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { SharedModule } from './shared/shared.module';
 
 
 const routes: Routes = [];
@@ -11,7 +12,8 @@ const routes: Routes = [];
   imports: [
     RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    SharedModule
   ],
   exports: [RouterModule]
 })

@@ -40,8 +40,8 @@ export class AllMoviesCarouselComponent implements OnInit {
   displayRange = {
     start: 1,
     currentPage: 1,
-    end: 5,
-    size: 5
+    end: 20,
+    size: 20
   };
   apiUrl: string;
   imageUrl = 'https://image.tmdb.org/t/p/original';
@@ -53,6 +53,7 @@ export class AllMoviesCarouselComponent implements OnInit {
     this.movie.getAllMovies().subscribe(
       movies => {
         this.allMovies = movies.results;
+        this.displayRange.size = movies.results.length;
         this.getDisplayImages();
         this.movieDetails.total_movies = movies.total_results;
         this.movieDetails.total_pages = movies.total_pages;
@@ -63,17 +64,35 @@ export class AllMoviesCarouselComponent implements OnInit {
     );
   }
   pageChange() {
-    this.displayRange.start =
-      (this.displayRange.currentPage - 1) * this.displayRange.size;
-    this.displayRange.end =
-      this.displayRange.currentPage * this.displayRange.size;
+    this.movie.getAllMovies({ page: this.displayRange.currentPage }).subscribe(
+      movies => {
+        this.allMovies = movies.results;
+        this.displayRange.size = movies.results.length;
+        this.getDisplayImages();
+        this.movieDetails.total_movies = movies.total_results;
+        this.movieDetails.total_pages = movies.total_pages;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+    // this.displayRange.start =
+    //   (this.displayRange.currentPage - 1) * this.displayRange.size;
+    // this.displayRange.end =
+    //   this.displayRange.currentPage * this.displayRange.size;
     this.getDisplayImages();
   }
   getDisplayImages() {
     this.displayMovies = this.allMovies.slice(
       this.displayRange.start,
       this.displayRange.end
-    );
-    console.log(this.displayMovies[0]);
+    )
+      .map(item => {
+        return {
+          ...item,
+          poster_path: '/2CAL2433ZeIihfX1Hb2139CX0pW.jpg'
+        };
+      })
+      ;
   }
 }
