@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<form class="form-inline" [formGroup]="searchForm">
+  <input formControlName="search" class="form-control mr-sm-2" type="search" placeholder="Search Movie Title"
+    aria-label="Search">
+  <button (click)="PerformSearch()" *ngIf="searchForm.get('search').valid" class="btn btn-outline-success my-2 my-sm-0"
+    type="button">Search</button>
+</form>
+  <span style="font-size: 2em;" *ngIf="searchComplete">Your Search for results "{{ searchForm.get('search').value }}"</span>
+  <section class="container-fluid">
+      <section class='row'>
+        <section *ngFor="let movie of foundMovies; let i = index" class='col-lg-3 col-md-4 col-sm-6 col-xs-12'
+          style="padding: 10px;">
+          <!-- <img style="width: 100%; height: 230px;" [src]="imageUrl + '/gg2lnxZfFRQZ33CYw8dzysUArgN.jpg'" [alt]="movie.name"
+            [title]="movie.title"> -->
+          <img style="width: 100%; height: 230px;" [src]="imageUrl + movie.poster_path" [alt]="movie.name"
+            [title]="movie.title">
+          <section style="text-align: center;">
+            <span class="pl-1">{{ movie.title }}</span> <span>({{ movie.release_date | date:'yyyy' }})</span>
+          </section>
+        </section>
+  </section>
+  <ngb-alert *ngIf="searchComplete && foundMovies.length < 1" type="info">Your search did not return any results</ngb-alert>
+
+</section>
+

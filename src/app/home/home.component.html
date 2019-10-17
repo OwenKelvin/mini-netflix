@@ -1,30 +1,18 @@
-<nav id="navbar-example2" class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <ul class="nav nav-pills">
-    <li *ngIf="!isLoggedIn" class="nav-item">
-      <a [routerLink]="['/register']" class="nav-link" >Sign Up</a>
-    </li>
-    <li class="nav-item" *ngIf="!isLoggedIn">
-      <a [routerLink]="['/login']" class="nav-link">Login</a>
-    </li>
+<app-header></app-header>
+<section style="background-color: #e3f2fd;">
 
-     <li *ngIf="isLoggedIn" class="nav-item" ngbDropdown aria-label="User Profile Button">
-       <a class="nav-link" href="#Login" ngbDropdownToggle>
-           <span *ngIf="user && user.displayName">Hello {{ user.displayName }}</span>
-           <span *ngIf="!(user && user.displayName)">{{ auth.user?.email }}</span>
-       </a>
-       <section class="dropdown-menu" ngbDropdownMenu>
-           <a ngbDropdownItem href="#one">My Movies</a>
-           <a (click)="logout()" ngbDropdownItem href="#">Logout</a>
-       </section>
-     </li>
-  </ul>
-</nav>
-<section class="card">
-  <section class="card-body">
-   <section class="page-title"> Mini Netflix</section>
-    <section class="page-title-description">Your Home Theatre Partner!</section>
+  <form class="form-inline" [formGroup]="searchForm">
+    <input formControlName="search" class="form-control mr-sm-2" type="search" placeholder="Search Movie Title"
+      aria-label="Search">
+    <button (click)="goToSearch()" *ngIf="searchForm.get('search').valid" class="btn btn-outline-success my-2 my-sm-0"
+      type="button">Search</button>
+  </form>
+  <section>
+    <router-outlet></router-outlet>
   </section>
+</section >
+
+<section>
+  <app-all-movies-carousel></app-all-movies-carousel>
 </section>
-<app-all-movies-carousel></app-all-movies-carousel>
-<router-outlet></router-outlet>
+

@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
-import { Observable, of } from 'rxjs'; 
+import { Observable } from 'rxjs';
+import { from } from 'rxjs';
 export interface IUser {
 displayName: null;
 email: string;
@@ -29,7 +30,7 @@ export class AuthService {
     });
   }
   login(email: string, password: string): Observable<any> {
-    return of(this.afAuth.auth.signInWithEmailAndPassword(email, password));
+    return from(this.afAuth.auth.signInWithEmailAndPassword(email, password));
   }
   getUser(): Observable<any> | string | { uid: string, } {
     return JSON.parse(localStorage.getItem('user'));
@@ -55,7 +56,7 @@ export class AuthService {
   // }
   logout(): Observable<any> {
     localStorage.removeItem('user');
-    return of(this.afAuth.auth.signOut());
+    return from(this.afAuth.auth.signOut());
   }
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));

@@ -9,7 +9,7 @@
   </ng-container>
 </owl-carousel-o>
 <section style="overflow: scroll;">
-  <ngb-pagination [(page)]="displayRange.currentPage" (pageChange)="pageChange()" [pageSize]="displayRange.size"
+  <ngb-pagination class="pagination" [(page)]="displayRange.currentPage" (pageChange)="pageChange()" [pageSize]="displayRange.size"
     [collectionSize]="movieDetails.total_movies">
   </ngb-pagination>
 </section>

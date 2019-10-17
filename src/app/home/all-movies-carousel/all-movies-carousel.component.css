@@ -1,3 +1,16 @@
 img {
     height: 400px;
 }
+:host .pagination {
+    background: red !important;
+}
+
+:host .page-item {
+  background: red !important;
+}
+:host >>> li >>> a[class='page-link'] {
+  color: black;
+}
+:host ::ng-deep .pagination a  {
+  color: black;;
+}

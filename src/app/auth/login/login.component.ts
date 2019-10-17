@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { AUTH_USER_LOGGED_IN } from '../store/actions';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 @Component({
   selector: 'app-login',
@@ -15,47 +18,35 @@ export class LoginComponent implements OnInit {
   password: string;
   credentials: FormGroup;
   error: string | null;
+  loginFormModal: NgbModalRef;
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
     private router: Router,
-    private store: Store<any>
+    private store: Store<any>,
+    public afAuth: AngularFireAuth,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit() {
+    this.open(LoginFormComponent);
     this.credentials = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
-  }
-  login() {
-    if (this.credentials.valid) {
-      this.authService
-        .login(
-          this.credentials.get('email').value,
-          this.credentials.get('password').value
-        )
-        .subscribe(
-          item => {
-            this.router.navigate(['/']);
-            this.store.dispatch({
-              type: AUTH_USER_LOGGED_IN,
-              payload: true
-            });
-          },
-          error => {
-            this.error = 'Unable to authenticate';
-          }
-        );
-    } else {
-      if (!this.credentials.get('email').valid) {
-        this.error = 'The email address you provided is incorrect';
-      } else {
-        this.error = 'Invalid form fields';
+    this.store.pipe(select(state => state.auth)).subscribe(item => {
+      if (item.userLoggedIn) {
+        this.loginFormModal.close();
       }
-    }
+      console.log(this.loginFormModal);
+    });
   }
-  close() {
-    this.error = null;
+  open(content) {
+    this.loginFormModal = this.modalService.open(content, {
+      ariaLabelledBy: 'modal-basic-title'
+    });
+    this.loginFormModal.result.then().catch(caught => {
+      this.router.navigate(['/']);
+    });
   }
 }
