@@ -3,6 +3,7 @@ import { Store, select } from '@ngrx/store';
 import { SEARCH_REQUEST } from '../store/actions';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { MovieService } from 'src/app/core/services/movie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -17,7 +18,8 @@ export class SearchComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private store: Store<any>,
-    private movies: MovieService
+    private movies: MovieService,
+    private router: Router
   ) {}
 
   ngOnDestroy() {}
@@ -41,5 +43,8 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
   PerformSearch() {
     this.searchFor(this.searchForm.get('search').value);
+  }
+  viewMovie(movieId) {
+    // this.router.navigate(['/movies/view/' + movieId]);
   }
 }

@@ -2,10 +2,10 @@
   <nav class="navbar-light">
     <ul class="nav justify-content-end">
       <li *ngIf="!isLoggedIn" class="nav-item">
-        <a [routerLink]="['/register']" class="nav-link">Sign Up</a>
+        <a style="color: darkblue;" [routerLink]="['/register']" class="nav-link">Sign Up</a>
       </li>
       <li class="nav-item" *ngIf="!isLoggedIn">
-        <a [routerLink]="['/login']" class="nav-link">Login</a>
+        <a style="color: darkblue;" [routerLink]="['/login']" class="nav-link">Login</a>
       </li>
 
       <li *ngIf="isLoggedIn" class="nav-item" ngbDropdown aria-label="User Profile Button">
@@ -28,6 +28,6 @@
   </nav>
 
   <section class="row justify-content-sm-center page">
-    <section class="col-sm-8 col-md-12 page-title"> Mini Netflix</section>
-    <section class="col-sm-8 page-title-description">Your Home Theatre Partner!</section>
+    <h1 class="col-sm-8 col-md-12 page-title"> Mini Netflix</h1>
+    <h2 class="col-sm-8 page-title-description">Your Home Theatre Partner!</h2>
   </section>

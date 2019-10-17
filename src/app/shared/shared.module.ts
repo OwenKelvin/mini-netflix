@@ -7,12 +7,29 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AllMoviesCarouselComponent } from '../home/all-movies-carousel/all-movies-carousel.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { ViewMovieComponent } from '../view/view-movie/view-movie.component';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, HomeComponent, AllMoviesCarouselComponent],
-  imports: [RouterModule, CommonModule, ReactiveFormsModule, CarouselModule, NgbPaginationModule],
-  exports: [HeaderComponent, HomeComponent, AllMoviesCarouselComponent]
+  declarations: [
+    HeaderComponent,
+    HomeComponent,
+    AllMoviesCarouselComponent,
+    ViewMovieComponent
+  ],
+  imports: [
+    RouterModule,
+    CommonModule,
+    ReactiveFormsModule,
+    CarouselModule,
+    NgbPaginationModule
+  ],
+  exports: [
+    HeaderComponent,
+    HomeComponent,
+    AllMoviesCarouselComponent,
+    ViewMovieComponent
+  ]
 })
 export class SharedModule {}

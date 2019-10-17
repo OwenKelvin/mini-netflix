@@ -21,7 +21,7 @@ import { AllMoviesCarouselComponent } from './home/all-movies-carousel/all-movie
 import { HttpClientModule } from '@angular/common/http';
 import { SearchModule } from './search/search.module';
 import { SharedModule } from './shared/shared.module';
-import { HeaderComponent } from './shared/header/header.component';
+import { ViewModule } from './view/view.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import { HeaderComponent } from './shared/header/header.component';
     MyMoviesComponent,
   ],
   imports: [
+    ViewModule,
     SharedModule,
     HttpClientModule,
     BrowserAnimationsModule,

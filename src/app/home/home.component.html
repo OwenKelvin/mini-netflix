@@ -1,18 +1,20 @@
-<app-header></app-header>
-<section style="background-color: #e3f2fd;">
+<header>
+  <app-header></app-header>
+  <section style="background-color: #e3f2fd;">
 
-  <form class="form-inline" [formGroup]="searchForm">
-    <input formControlName="search" class="form-control mr-sm-2" type="search" placeholder="Search Movie Title"
-      aria-label="Search">
-    <button (click)="goToSearch()" *ngIf="searchForm.get('search').valid" class="btn btn-outline-success my-2 my-sm-0"
-      type="button">Search</button>
-  </form>
-  <section>
-    <router-outlet></router-outlet>
+    <form class="form-inline" [formGroup]="searchForm">
+      <input formControlName="search" class="form-control mr-sm-2" type="search" placeholder="Search Movie Title"
+        aria-label="Search">
+      <button (click)="goToSearch()" *ngIf="searchForm.get('search').valid" class="btn btn-outline-success my-2 my-sm-0"
+        type="button">Search</button>
+    </form>
+    <section>
+      <router-outlet></router-outlet>
+    </section>
   </section>
-</section >
-
-<section>
-  <app-all-movies-carousel></app-all-movies-carousel>
-</section>
-
+</header>
+<main>
+  <section>
+    <app-all-movies-carousel></app-all-movies-carousel>
+  </section>
+</main>

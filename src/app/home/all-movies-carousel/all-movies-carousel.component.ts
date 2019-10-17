@@ -2,7 +2,6 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { MovieService } from 'src/app/core/services/movie.service';
 import { backendUrl } from 'src/app/config/app.config';
-import { of } from 'rxjs';
 
 @Component({
   selector: 'app-all-movies-carousel',
@@ -55,7 +54,8 @@ export class AllMoviesCarouselComponent implements OnInit {
         this.allMovies = movies.results;
         this.displayRange.size = movies.results.length;
         this.getDisplayImages();
-        this.movieDetails.total_movies = movies.total_results;
+        // this.movieDetails.total_movies = movies.total_results;
+        this.movieDetails.total_movies = 400; // TODO REMOVE IN PROD
         this.movieDetails.total_pages = movies.total_pages;
       },
       error => {
@@ -69,7 +69,8 @@ export class AllMoviesCarouselComponent implements OnInit {
         this.allMovies = movies.results;
         this.displayRange.size = movies.results.length;
         this.getDisplayImages();
-        this.movieDetails.total_movies = movies.total_results;
+        // this.movieDetails.total_movies = movies.total_results;
+        this.movieDetails.total_movies = 400; // TODO REMOVE IN PROD
         this.movieDetails.total_pages = movies.total_pages;
       },
       error => {
