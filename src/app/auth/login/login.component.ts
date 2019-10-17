@@ -35,10 +35,9 @@ export class LoginComponent implements OnInit {
       password: ['', [Validators.required]]
     });
     this.store.pipe(select(state => state.auth)).subscribe(item => {
-      if (item.userLoggedIn) {
+      if (item && item.userLoggedIn) {
         this.loginFormModal.close();
       }
-      console.log(this.loginFormModal);
     });
   }
   open(content) {
