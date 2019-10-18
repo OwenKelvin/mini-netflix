@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const apiKey = 'api_key=93939d67fe9e2a5e4ca0a0d8ec3c700d';
-searchApi = `https://api.themoviedb.org/3/search/movie?${apiKey}&language=en-US&page=1&include_adult=false`;
-genresApi = `https://api.themoviedb.org/3/genre/movie/list?${apiKey}`;
+let searchApi = `https://api.themoviedb.org/3/search/movie?${apiKey}&language=en-US&page=1&include_adult=false`;
+let genresApi = `https://api.themoviedb.org/3/genre/movie/list?${apiKey}`;
 const api = `https://api.themoviedb.org/3/movie/top_rated?${apiKey}`;
 const api_helper = require('./API_helper');
 
