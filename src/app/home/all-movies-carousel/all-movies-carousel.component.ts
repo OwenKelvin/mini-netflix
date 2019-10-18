@@ -91,7 +91,7 @@ export class AllMoviesCarouselComponent implements OnInit {
       .map(item => {
         return {
           ...item,
-          poster_path: '/2CAL2433ZeIihfX1Hb2139CX0pW.jpg'
+          // poster_path: '/2CAL2433ZeIihfX1Hb2139CX0pW.jpg'
         };
       })
       ;

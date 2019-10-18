@@ -3,7 +3,6 @@ import { AuthService } from '../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
-import { AUTH_USER_LOGGED_IN } from '../store/actions';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -20,7 +19,6 @@ export class LoginComponent implements OnInit {
   error: string | null;
   loginFormModal: NgbModalRef;
   constructor(
-    private authService: AuthService,
     private fb: FormBuilder,
     private router: Router,
     private store: Store<any>,
