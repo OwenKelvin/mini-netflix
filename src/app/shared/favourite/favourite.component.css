@@ -1,0 +1,9 @@
+i {
+    color: royalblue;
+    cursor: pointer;
+    
+}
+:host .popoverClass {
+    background: salmon;
+    border: red 2px;
+}

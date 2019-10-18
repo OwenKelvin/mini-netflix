@@ -7,11 +7,9 @@ import { backendUrl } from 'src/app/config/app.config';
   providedIn: 'root'
 })
 export class MovieService {
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) {}
   getAllMovies(filter: { page: number } = null): Observable<any> {
-    console.log(filter)
+    console.log(filter);
     if (filter) {
       const { page } = filter;
       if (page) {
@@ -22,7 +20,10 @@ export class MovieService {
     // return of(allMovies);
   }
   getFilterTitle(search: string): Observable<any> {
-
     return this.http.get<any>(backendUrl + 'movies/search/' + search);
+  }
+
+  getMovie(id) {
+    return this.http.get<any>(backendUrl + 'movie/' + id);
   }
 }

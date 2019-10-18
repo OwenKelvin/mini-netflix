@@ -1,0 +1,6 @@
+<i (click)="toggleFavourite(false)" *ngIf="isFavourite" ngbPopover="Mark as favourites" [openDelay]="300"
+  [closeDelay]="500"
+  triggers="mouseenter:mouseleave" class="icon-star"></i>
+<i (click)="toggleFavourite(true)" *ngIf="!isFavourite" ngbPopover="Remove favourites" [openDelay]="300"
+  [closeDelay]="500"
+  triggers="mouseenter:mouseleave" class="icon-star-empty"></i>

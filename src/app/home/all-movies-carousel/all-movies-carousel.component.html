@@ -1,9 +1,10 @@
 <owl-carousel-o [options]="customOptions">
-  <ng-container style="padding: 10px;" *ngFor=" let slide of displayMovies; let i=index">
-    <ng-template carouselSlide [id]="slide.id">
-      <img [src]="imageUrl + slide.poster_path" [alt]="slide.alt" [title]="slide.title">
+  <ng-container style="padding: 10px;" *ngFor=" let movie of displayMovies; let i=index">
+    <ng-template carouselSlide [id]="movie.id">
+      <a href="#" [routerLink]="['/view/' + movie.id]" style="cursor: pointer; position: absolute; bottom: 30px; right: 10px;" type="button" class="btn btn-info btn-sm">view details...</a>
+      <img [src]="imageUrl + movie.poster_path" [alt]="movie.alt" [title]="movie.title">
       <section style="text-align: center;">
-        <span class="pl-1">{{ slide.title }}</span> <span>({{ slide.release_date | date:'yyyy' }})</span>
+        <span class="pl-1">{{ movie.title }}</span> <span>({{ movie.release_date | date:'yyyy' }})</span>
       </section>
     </ng-template>
   </ng-container>

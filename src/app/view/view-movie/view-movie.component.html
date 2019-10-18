@@ -1,1 +1,118 @@
 <app-header></app-header>
+<section [style.background]="'url(' + movie.backdrop_path + ')'">
+  <section class="container">
+    <section class="row">
+      <section class="col-lg-5">
+        <img [src]="movie.poster_path" alt="">
+      </section>
+      <section class="col-lg-7">
+        <section class="card">
+          <section class="card-body">
+            <span class="rating">{{ movie.vote_average | number: '1.1-1' }}</span>
+            <h1>{{ movie.title }}({{ movie.release_date | date:'yyyy' }}) <app-favourite [movieId]="movie.id">
+              </app-favourite>
+            </h1>
+            <p>{{ movie.tagline }}</p>
+            <section class="row ">
+              <section class="list-group-item col-lg-4">
+                Original Title
+              </section>
+              <section class="list-group-item col-8">
+                {{ movie.original_title }}
+              </section>
+              <section class="list-group-item col-lg-4">
+                Rating
+              </section>
+              <section class="list-group-item col-8">
+                <ng-template #t let-fill="fill">
+                  <span class="star" [class.full]="fill === 100">
+                    <span class="half" [style.width.%]="fill">&hearts;</span>&hearts;
+                  </span>
+                </ng-template>
+                <ngb-rating class="star" [rate]="movie.vote_average" [starTemplate]="t" [readonly]="true" max="10">
+                </ngb-rating>
+              </section>
+              <section class="list-group-item col-lg-4">
+                Vote Count
+              </section>
+              <section class="list-group-item col-lg-8">
+                {{ movie.vote_count }} (Average {{ movie.vote_average }})
+              </section>
+              <section class="list-group-item col-lg-4">
+                Release Date
+              </section>
+              <section class="list-group-item col-lg-8">
+                {{ movie.release_date }}
+              </section>
+              <section class="list-group-item col-lg-4">
+                Runtime
+              </section>
+              <section class="list-group-item col-lg-8">
+                {{ movie.runtime | hrsMinutes }}
+              </section>
+
+            </section>
+          </section>
+        </section>
+      </section>
+      <section class="col-sm-12">
+        <section class="card">
+          <section class="card-body">
+            <h2>Genres</h2>
+            <span *ngFor="let genre of movie.genres"> {{ genre.name }}</span>
+          </section>
+        </section>
+
+      </section>
+      <section class="col-sm-12">
+        <section class="card">
+          <section class="card-body">
+            <h2>Production Companies</h2>
+            <span *ngFor="let company of movie.production_companies"> {{ company.name }}</span>
+          </section>
+        </section>
+      </section>
+      <section class="col-sm-12">
+        <section class="card">
+          <section class="card-body">
+            <h2>Overview</h2>
+            <p>{{ movie.overview }}</p>
+          </section>
+        </section>
+      </section>
+
+    </section>
+  </section>
+  <!-- adult: false, backdrop_path: "/BKfK0XIkjLFeNJQGOS0tsF9F2D.jpg", belongs_to_collection: null, budget: 0, genres:
+    Array(3), …}
+    adult: false
+    backdrop_path: "/BKfK0XIkjLFeNJQGOS0tsF9F2D.jpg"
+    belongs_to_collection: null
+    budget: 0
+    
+    length: 3
+    __proto__: Array(0)
+    homepage: null
+    id: 159128
+    imdb_id: "tt2309021"
+    original_language: "en"
+    
+    production_companies: Array(1)
+    0: {id: 2341, logo_path: null, name: "Belladonna Productions", origin_country: ""}
+    length: 1
+    __proto__: Array(0)
+    production_countries: Array(1)
+    0: {iso_3166_1: "US", name: "United States of America"}
+    length: 1
+    __proto__: Array(0)
+    release_date: "2013-09-27"
+    revenue: 81381
+    
+    spoken_languages: Array(1)
+    0: {iso_639_1: "en", name: "English"}
+    length: 1
+    __proto__: Array(0)
+    status: "Released"
+    video: false -->
+
+</section>

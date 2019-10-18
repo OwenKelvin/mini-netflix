@@ -28,7 +28,8 @@
           </a>
         </section>
   </section>
-  <ngb-alert *ngIf="searchComplete && foundMovies.length < 1" type="info">Your search did not return any results</ngb-alert>
+  <ngb-alert *ngIf="searchComplete && foundMovies && foundMovies.length < 1" type="info">Your search did not return any
+    results</ngb-alert>
 
 </section>
 

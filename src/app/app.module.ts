@@ -8,7 +8,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { AuthModule } from './auth/auth.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { MyMoviesComponent } from './members/my-movies/my-movies.component';
 import { MembersModule } from './members/members.module';
 import { HomeComponent } from './home/home.component';
@@ -24,12 +24,10 @@ import { SharedModule } from './shared/shared.module';
 import { ViewModule } from './view/view.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MyMoviesComponent,
-  ],
+  declarations: [AppComponent, MyMoviesComponent],
   imports: [
     ViewModule,
+    NgbRatingModule,
     SharedModule,
     HttpClientModule,
     BrowserAnimationsModule,

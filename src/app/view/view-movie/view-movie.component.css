@@ -1,0 +1,43 @@
+img {
+    width: 100%;
+    height: 365px;
+}
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 2rem;
+  line-height: 1rem;
+  color: lightgray;
+}
+    .full {
+      color: red;
+    }
+
+    .half {
+      position: absolute;
+      display: inline-block;
+      overflow: hidden;
+      color: red;
+    }
+
+h1 {
+    font-size: 1.5em;
+}
+h2 {
+    font-size: 1.3em;
+}
+.rating {
+    width: 70px;
+    height: 70px;
+    font-size: 40px;
+    line-height:65px;
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 10px;
+    border-radius: 50px;
+    /* padding: 2px; */
+    display: block;
+    float: right;
+    background: rgb(8, 7, 7);
+    color: white;
+}

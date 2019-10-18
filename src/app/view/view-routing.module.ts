@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { viewRouterConfig } from './view-movie.cofig';
-import { HeaderComponent } from '../shared/header/header.component';
-
 
 const routes: Routes = viewRouterConfig;
 
