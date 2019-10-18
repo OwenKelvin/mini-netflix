@@ -1,11 +1,11 @@
 <app-header></app-header>
-<section [style.background]="'url(' + movie.backdrop_path + ')'">
+<section [ngStyle]="movie.backdrop_path ? {'background-image': 'url(' + movie.backdrop_path + ')' }: ''">
   <section class="container">
     <section class="row">
-      <section class="col-lg-5">
-        <img [src]="movie.poster_path" alt="">
+      <section class="col-lg-6" style="line-height: 350px;">
+        <img width="100%" *ngIf="movie.poster_path" [src]="movie.poster_path" alt="">
       </section>
-      <section class="col-lg-7">
+      <section class="col-lg-6">
         <section class="card">
           <section class="card-body">
             <span class="rating">{{ movie.vote_average | number: '1.1-1' }}</span>

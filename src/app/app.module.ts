@@ -18,10 +18,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AllMoviesCarouselComponent } from './home/all-movies-carousel/all-movies-carousel.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SearchModule } from './search/search.module';
 import { SharedModule } from './shared/shared.module';
 import { ViewModule } from './view/view.module';
+import { CacheInterceptor } from './core/interceptors/cache.interceptor';
 
 @NgModule({
   declarations: [AppComponent, MyMoviesComponent],
@@ -62,7 +63,9 @@ import { ViewModule } from './view/view.module';
     }),
     SearchModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent],
   exports: []
 })
