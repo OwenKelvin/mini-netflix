@@ -8,7 +8,7 @@ export class HrsMinutes implements PipeTransform {
     if (value > 0 && value / 60 < 1) {
       return value + ' Minutes';
     } else {
-      return Math.floor(value / 60) + ' Hr(2) ' + value % 60 + ' Minute(s)';
+      return Math.floor(value / 60) + ' Hr(s) ' + value % 60 + ' Minute(s)';
     }
   }
 }

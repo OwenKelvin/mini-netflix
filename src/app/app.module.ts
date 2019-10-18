@@ -25,7 +25,7 @@ import { ViewModule } from './view/view.module';
 import { CacheInterceptor } from './core/interceptors/cache.interceptor';
 
 @NgModule({
-  declarations: [AppComponent, MyMoviesComponent],
+  declarations: [AppComponent],
   imports: [
     ViewModule,
     NgbRatingModule,

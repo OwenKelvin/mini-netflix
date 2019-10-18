@@ -13,9 +13,9 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
-  declarations: [SearchComponent],
+  declarations: [],
   imports: [
-    NgbAlertModule,
+    
     CommonModule,
     SharedModule,
     SearchRoutingModule,

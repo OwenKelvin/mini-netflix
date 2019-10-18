@@ -9,7 +9,6 @@ import { backendUrl } from 'src/app/config/app.config';
 export class MovieService {
   constructor(private http: HttpClient) {}
   getAllMovies(filter: { page: number } = null): Observable<any> {
-    console.log(filter);
     if (filter) {
       const { page } = filter;
       if (page) {

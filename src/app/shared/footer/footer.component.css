@@ -1,0 +1,24 @@
+footer {
+  padding: 20px;
+  background: black;
+  display: block;
+}
+
+.list-group-item {
+  text-align: center;
+  padding: 0;
+}
+
+.list-group-item a {
+  padding: 10px;
+  text-align: center;
+  color: green;
+  display: block;
+}
+
+.list-group-item a:hover,
+.list-group-item :hover {
+  text-decoration: none;
+  background: green;
+  color: white;
+}

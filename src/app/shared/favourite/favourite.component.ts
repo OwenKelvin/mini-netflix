@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MovieStoreService } from 'src/app/core/services/movie-store.service';
 
 @Component({
   selector: 'app-favourite',
@@ -8,11 +9,19 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FavouriteComponent implements OnInit {
   @Input() movieId;
   isFavourite: boolean;
-  constructor() { }
+  constructor(
+    private movie: MovieStoreService
+  ) {}
 
   ngOnInit() {
+    this.isFavourite = this.movie.isFavourite(this.movieId);
   }
-  toggleFavourite(value: boolean): void{
+  toggleFavourite(value: boolean): void {
     this.isFavourite = value;
+    if (this.isFavourite) {
+      this.movie.addToFavourites(this.movieId);
+    } else {
+      this.movie.removeFromFavourites(this.movieId);
+    }
   }
 }

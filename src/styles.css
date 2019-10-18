@@ -3,4 +3,11 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.css';
 @import '../node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css';
 @import '../node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css';
-@import './assets/fonts/Fontello/css/fontello.css'
+@import './assets/fonts/Fontello/css/fontello.css';
+
+section>.movie-item:hover {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 15px #1776c4;
+  cursor: pointer;
+}

@@ -9,7 +9,7 @@
         <section class="card">
           <section class="card-body">
             <span class="rating">{{ movie.vote_average | number: '1.1-1' }}</span>
-            <h1>{{ movie.title }}({{ movie.release_date | date:'yyyy' }}) <app-favourite [movieId]="movie.id">
+            <h1>{{ movie.title }}({{ movie.release_date | date:'yyyy' }}) <app-favourite *ngIf="movie.id" [movieId]="movie.id">
               </app-favourite>
             </h1>
             <p>{{ movie.tagline }}</p>
@@ -83,36 +83,6 @@
 
     </section>
   </section>
-  <!-- adult: false, backdrop_path: "/BKfK0XIkjLFeNJQGOS0tsF9F2D.jpg", belongs_to_collection: null, budget: 0, genres:
-    Array(3), …}
-    adult: false
-    backdrop_path: "/BKfK0XIkjLFeNJQGOS0tsF9F2D.jpg"
-    belongs_to_collection: null
-    budget: 0
-    
-    length: 3
-    __proto__: Array(0)
-    homepage: null
-    id: 159128
-    imdb_id: "tt2309021"
-    original_language: "en"
-    
-    production_companies: Array(1)
-    0: {id: 2341, logo_path: null, name: "Belladonna Productions", origin_country: ""}
-    length: 1
-    __proto__: Array(0)
-    production_countries: Array(1)
-    0: {iso_3166_1: "US", name: "United States of America"}
-    length: 1
-    __proto__: Array(0)
-    release_date: "2013-09-27"
-    revenue: 81381
-    
-    spoken_languages: Array(1)
-    0: {iso_639_1: "en", name: "English"}
-    length: 1
-    __proto__: Array(0)
-    status: "Released"
-    video: false -->
+<app-footer></app-footer>
 
 </section>

@@ -11,9 +11,9 @@ import { imageUrl } from 'src/app/config/app.config';
 export class ViewMovieComponent implements OnInit {
   movie: any;
   constructor(private router: Router, private movieService: MovieService) {}
-
   ngOnInit() {
     this.movie = {};
+
     // imageUrl
     const activatedRoute: ActivatedRoute = this.router.routerState.root;
     activatedRoute.children[0].params.subscribe(params => {
