@@ -32,7 +32,7 @@
         <!-- <img style="width: 100%; height: 230px;" [src]="imageUrl + '/gg2lnxZfFRQZ33CYw8dzysUArgN.jpg'" [alt]="movie.name"
             [title]="movie.title"> -->
         <a [routerLink]="['/view/' + movie.id]">
-          <section (click)="viewMovie(movie.id)"
+          <section
             style="text-align: center; padding-bottom: 30px; left: 50%; right: 50%;">
             <span *ngIf="!movie.poster_path">No IMAGE AVAILABLE</span>
             <img *ngIf="movie.poster_path" style="width: 100%; height: 230px;" [src]="imageUrl + movie.poster_path"
