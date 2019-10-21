@@ -11,7 +11,7 @@
       <li *ngIf="isLoggedIn" class="nav-item" ngbDropdown aria-label="User Profile Button">
         <a class="nav-link" href="#Login" ngbDropdownToggle style="color: darkblue;">
           <span *ngIf="user && user.displayName">Hello {{ user.displayName }}</span>
-          <span *ngIf="!(user && user.displayName)">{{ auth.user?.email }}</span>
+          <span *ngIf="!(user && user.displayName)">{{ publicAuth.user?.email }}</span>
         </a>
         <section class="dropdown-menu" ngbDropdownMenu>
           <a style="color: darkblue;" ngbDropdownItem href="#one">My Movies</a>
