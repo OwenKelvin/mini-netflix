@@ -8,7 +8,7 @@
   [delay]="5000" 
   [autohide]="toastParams.autohide" (mouseenter)="toastParams.autohide = false"
   (mouseleave)="toastParams.autohide = true" 
-  (hide)="toastParams.show = false; autohide = true"
+  (hide)="toastParams.show = false; toastParams.autohide = true"
   [class.bg-success]="true">
   {{ toastParams.message }}
 </ngb-toast>
