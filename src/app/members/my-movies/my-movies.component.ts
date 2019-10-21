@@ -21,7 +21,6 @@ export class MyMoviesComponent implements OnInit {
 
     this.movie.currentFavourites.forEach(item => {
       this.movieService.getMovie(item).subscribe(res => {
-        console.log(res)
         this.myMovies.push(res);
       });
     });

@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   user: any;
   isLoggedIn: boolean;
   searchForm: FormGroup;
+  
   constructor(
     private auth: AuthService,
     private router: Router,
@@ -22,6 +23,9 @@ export class HeaderComponent implements OnInit {
     private fb: FormBuilder
   ) {}
 
+  get publicAuth() {
+    return this.auth;
+  }
   ngOnInit() {
     this.searchForm = this.fb.group({
       search: ['', [Validators.required]]
