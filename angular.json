@@ -20,6 +20,7 @@
             "tsConfig": "tsconfig.app.json",
             "aot": false,
             "assets": [
+              "_redirects",
               "src/favicon.ico",
               "src/assets"
             ],
