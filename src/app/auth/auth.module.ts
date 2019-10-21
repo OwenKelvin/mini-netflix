@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import * as fromAuth from './store/reducers';
 import { StoreModule } from '@ngrx/store';
 import { LoginFormComponent } from './login/login-form/login-form.component';
+import { SignUpFormComponent } from './signup/sign-up-form/sign-up-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
     EmailComponent,
     SignupComponent,
     UserProfileComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    SignUpFormComponent
   ],
   imports: [
     CommonModule,
@@ -27,6 +29,6 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
     ReactiveFormsModule,
     StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer)
   ],
-  entryComponents: [LoginFormComponent]
+  entryComponents: [LoginFormComponent, SignUpFormComponent]
 })
 export class AuthModule {}

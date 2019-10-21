@@ -3,15 +3,15 @@ import { Router } from '@angular/router';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { from } from 'rxjs';
 export interface IUser {
-displayName: null;
-email: string;
-emailVerified: false;
-isAnonymous: false;
-lastLoginAt: string;
-phoneNumber: null;
+  displayName: null;
+  email: string;
+  emailVerified: false;
+  isAnonymous: false;
+  lastLoginAt: string;
+  phoneNumber: null;
 }
 @Injectable({
   providedIn: 'root'
@@ -32,15 +32,20 @@ export class AuthService {
   login(email: string, password: string): Observable<any> {
     return from(this.afAuth.auth.signInWithEmailAndPassword(email, password));
   }
-  getUser(): Observable<any> | string | { uid: string, } {
+  getUser(): Observable<any> | string | { uid: string } {
     return JSON.parse(localStorage.getItem('user'));
   }
-  async register(email: string, password: string) {
-    let result = await this.afAuth.auth.createUserWithEmailAndPassword(
-      email,
-      password
+  register(email: string, password: string) {
+    return from(
+      this.afAuth.auth
+        .createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          this.sendEmailVerification();
+        })
+        .catch(() => {
+          throwError('An Error occured while creating the user');
+        })
     );
-    this.sendEmailVerification();
   }
   async sendEmailVerification() {
     await this.afAuth.auth.currentUser.sendEmailVerification();

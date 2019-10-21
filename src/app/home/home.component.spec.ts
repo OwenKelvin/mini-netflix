@@ -8,6 +8,11 @@ import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import * as fromAuth from '../auth/store/reducers';
 import { StoreModule } from '@ngrx/store';
+import { HeaderComponent } from '../shared/header/header.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AllMoviesCarouselComponent } from './all-movies-carousel/all-movies-carousel.component';
+import { SharedModule } from '../shared/shared.module';
+import { FooterComponent } from '../shared/footer/footer.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -22,9 +27,11 @@ describe('HomeComponent', () => {
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireAuthModule,
         StoreModule.forRoot({}),
-        StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer)
+        StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer),
+        ReactiveFormsModule,
+        SharedModule
       ],
-      declarations: [HomeComponent]
+      declarations: [AllMoviesCarouselComponent, FooterComponent]
     }).compileComponents();
   }));
 

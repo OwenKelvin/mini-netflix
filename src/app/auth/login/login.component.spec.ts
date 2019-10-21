@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { StoreModule } from '@ngrx/store';
 import * as fromAuth from '../store/reducers';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -24,9 +26,11 @@ describe('LoginComponent', () => {
         ReactiveFormsModule,
         NgbAlertModule,
         StoreModule.forRoot({}),
-        StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer)
+        StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer),
+        HttpClientModule
       ],
-      declarations: [LoginComponent]
+      declarations: [LoginComponent, LoginFormComponent]
+      // entryComponents: [LoginFormComponent]
     }).compileComponents();
   }));
 

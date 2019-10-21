@@ -1,0 +1,29 @@
+<section class="card border-info" style="position: absolute; top: 45px; right: 20px">
+  <section class="card-header">Login</section>
+  <section class="card-body">
+    <section class="row">
+      <section class="col-md-4 text-center">
+        <img src="https://placeimg.com/128/128/nature">
+      </section>
+      <section class="col-md-8">
+        <form [formGroup]="signUpForm">
+          <input formControlName="email" type="text" class="form-control mb-2" placeholder="Email" autofocus>
+          <input formControlName="password" type="password" class="form-control mb-2" placeholder="Password" required>
+          <input formControlName="confirmPassword" type="password" class="form-control mb-2" placeholder="Confirm Password" required>
+          <button (click)="signUp()" class="btn btn-primary btn-block mb-1" type="button">Sign Up</button>
+        </form>
+      </section>
+    </section>
+    <section>
+        
+      <span class="text-danger float-left">
+        {{ error }}
+        <span *ngIf="signUpForm.get('confirmPassword').errors || signUpForm .errors?.mismatch">
+          Password doesn't match
+        </span>
+      </span>
+      &nbsp;
+      <span [hidden]="!error" (click)="close()" class="float-right" style="cursor: pointer;">&times;</span>
+    </section>
+  </section>
+</section>

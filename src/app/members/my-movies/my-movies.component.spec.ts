@@ -1,6 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyMoviesComponent } from './my-movies.component';
+import { HeaderComponent } from 'src/app/shared/header/header.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment.prod';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('MyMoviesComponent', () => {
   let component: MyMoviesComponent;
@@ -8,9 +15,15 @@ describe('MyMoviesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MyMoviesComponent ]
-    })
-    .compileComponents();
+      imports: [
+        RouterTestingModule,
+        SharedModule,
+        HttpClientModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireAuthModule
+      ],
+      declarations: []
+    }).compileComponents();
   }));
 
   beforeEach(() => {

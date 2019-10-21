@@ -1,6 +1,6 @@
-/* img {
-    height: 400px;
-} */
+img {
+    border: blanchedalmond 3px solid;
+}
 
 :host >>> li >>> a[class='page-link'] {
   color: black;

@@ -6,7 +6,7 @@
         <img width="100%" *ngIf="movie.poster_path" [src]="movie.poster_path" alt="">
       </section>
       <section class="col-lg-6">
-        <section class="card">
+        <section class="card" style="background-color: rgba(255, 255, 255, 0.582);">
           <section class="card-body">
             <span class="rating">{{ movie.vote_average | number: '1.1-1' }}</span>
             <h1>{{ movie.title }}({{ movie.release_date | date:'yyyy' }}) <app-favourite *ngIf="movie.id" [movieId]="movie.id">

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FavouriteComponent } from './favourite.component';
+import { NgbPopoverModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('FavouriteComponent', () => {
   let component: FavouriteComponent;
@@ -8,9 +9,9 @@ describe('FavouriteComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FavouriteComponent ]
-    })
-    .compileComponents();
+      imports: [NgbModule, NgbPopoverModule],
+      declarations: [FavouriteComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

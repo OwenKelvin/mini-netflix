@@ -11,7 +11,7 @@ app.get('/', (req, res) =>
   res.send('Welcome to Make REST API Calls In Express!')
 );
 
-app.listen(port, () => console.log(`App listening on port ${port}!`));
+app.listen(process.env.PORT || port, () => console.log(`App listening on port ${port}!`));
 
 app.get('/movies', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');

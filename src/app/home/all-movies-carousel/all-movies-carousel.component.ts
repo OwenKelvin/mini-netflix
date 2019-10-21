@@ -16,7 +16,7 @@ export class AllMoviesCarouselComponent implements OnInit {
     pullDrag: false,
     dots: false,
     navSpeed: 700,
-    navText: ['', ''],
+    navText: ['Prev', 'Next'],
     responsive: {
       0: {
         items: 1
@@ -52,7 +52,9 @@ export class AllMoviesCarouselComponent implements OnInit {
     this.movie.getAllMovies().subscribe(
       movies => {
         this.allMovies = movies.results;
-        this.displayRange.size = movies.results.length;
+        if (movies.results) {
+          this.displayRange.size = movies.results.length;
+        }
         this.getDisplayImages();
         // this.movieDetails.total_movies = movies.total_results;
         this.movieDetails.total_movies = 400; // TODO REMOVE IN PROD
@@ -84,16 +86,13 @@ export class AllMoviesCarouselComponent implements OnInit {
     this.getDisplayImages();
   }
   getDisplayImages() {
-    this.displayMovies = this.allMovies.slice(
-      this.displayRange.start,
-      this.displayRange.end
-    )
+    this.displayMovies = this.allMovies
+      .slice(this.displayRange.start, this.displayRange.end)
       .map(item => {
         return {
-          ...item,
+          ...item
           // poster_path: '/2CAL2433ZeIihfX1Hb2139CX0pW.jpg'
         };
-      })
-      ;
+      });
   }
 }

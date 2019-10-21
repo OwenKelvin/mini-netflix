@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AllMoviesCarouselComponent } from './all-movies-carousel.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AllMoviesCarouselComponent', () => {
   let component: AllMoviesCarouselComponent;
@@ -8,6 +10,7 @@ describe('AllMoviesCarouselComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [CarouselModule, RouterTestingModule],
       declarations: [ AllMoviesCarouselComponent ]
     })
     .compileComponents();
