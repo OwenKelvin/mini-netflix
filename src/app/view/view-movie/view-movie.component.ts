@@ -10,6 +10,7 @@ import { imageUrl } from 'src/app/config/app.config';
 })
 export class ViewMovieComponent implements OnInit {
   movie: any;
+  imageUrl = imageUrl;
   constructor(private router: Router, private movieService: MovieService) {}
   ngOnInit() {
     this.movie = {};

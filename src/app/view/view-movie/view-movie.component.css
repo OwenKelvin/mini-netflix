@@ -41,3 +41,14 @@ h2 {
     background: rgb(8, 7, 7);
     color: white;
 }
+.list-group-item {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.card {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.badge {
+  padding: 8px;
+  font-size: 1em;
+  margin-right: 3px;
+}

@@ -6,10 +6,11 @@
         <img width="100%" *ngIf="movie.poster_path" [src]="movie.poster_path" alt="">
       </section>
       <section class="col-lg-6">
-        <section class="card" style="background-color: rgba(255, 255, 255, 0.582);">
+        <section class="card" style="background-color: rgba(255, 255, 255, 0.8);">
           <section class="card-body">
             <span class="rating">{{ movie.vote_average | number: '1.1-1' }}</span>
-            <h1>{{ movie.title }}({{ movie.release_date | date:'yyyy' }}) <app-favourite *ngIf="movie.id" [movieId]="movie.id">
+            <h1>{{ movie.title }}({{ movie.release_date | date:'yyyy' }}) <app-favourite *ngIf="movie.id"
+                [movieId]="movie.id">
               </app-favourite>
             </h1>
             <p>{{ movie.tagline }}</p>
@@ -59,16 +60,7 @@
         <section class="card">
           <section class="card-body">
             <h2>Genres</h2>
-            <span *ngFor="let genre of movie.genres"> {{ genre.name }}</span>
-          </section>
-        </section>
-
-      </section>
-      <section class="col-sm-12">
-        <section class="card">
-          <section class="card-body">
-            <h2>Production Companies</h2>
-            <span *ngFor="let company of movie.production_companies"> {{ company.name }}</span>
+            <span class="badge badge-secondary" *ngFor="let genre of movie.genres"> {{ genre.name }}</span>
           </section>
         </section>
       </section>
@@ -80,9 +72,50 @@
           </section>
         </section>
       </section>
+      <section *ngIf="movie.homepage" class="col-sm-12">
+        <section class="card">
+          <section class="card-body">
+            <h2>Homepage</h2>
+            Visit movie site at: <a style="color: darkblue;" href="{{ movie.homepage}}">{{ movie.homepage}}</a>
+          </section>
+        </section>
+      </section>
+      <section class="col-sm-12">
+        <section class="card">
+          <section class="card-body">
+            <h2>Production Countries</h2>
+            <span class="badge badge-secondary" *ngFor="let genre of movie.production_countries">
+              {{ genre.name }}</span>
+          </section>
+        </section>
+      </section>
+      <section class="col-sm-12">
+        <section class="card">
+          <section class="card-body">
+            <h2>Production Companies</h2>
+            <section class='d-flex justify-content-space-between flex-wrap'>
+              <section *ngFor="let company of movie.production_companies" class='col-lg-4 col-md-4 col-sm-6 col-xs-12'
+                style="border: rgb(170, 218, 218) solid 3px; padding: 3px;">
+                <section class='d-flex'>
+                  <section class='col-lg-6 col-md-4 col-sm-6 col-xs-12'>
+                    <img width="100%" [src]="imageUrl + company.logo_path" alt="company.name">
+
+                  </section>
+                  <section class='col-'>
+                    <span> {{ company.name }}</span>
+
+                  </section>
+                </section>
+              </section>
+            </section>
+
+          </section>
+        </section>
+      </section>
+      
 
     </section>
   </section>
-<app-footer></app-footer>
+  <app-footer></app-footer>
 
 </section>
