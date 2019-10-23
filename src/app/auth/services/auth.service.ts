@@ -49,7 +49,8 @@ export class AuthService {
   }
   async sendEmailVerification() {
     await this.afAuth.auth.currentUser.sendEmailVerification();
-    this.router.navigate(['admin/verify-email']);
+    this.router.navigate(['/']); // TODO Enable for email verification
+    // this.router.navigate(['admin/verify-email']);
   }
   async sendPasswordResetEmail(passwordResetEmail: string) {
     return await this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail);
@@ -69,6 +70,6 @@ export class AuthService {
   }
   async loginWithGoogle() {
     await this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
-    this.router.navigate(['admin/list']);
+    // this.router.navigate(['admin/list']); TODO implement
   }
 }

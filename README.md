@@ -1,7 +1,9 @@
 
 # MiniNetflix
 
-This is a mini-netflix web application with Angular
+This is a mini-netflix web application with Angular.
+
+A preview of the finished product is available at [https://mini-netflix-owenkelvin.netlify.com](https://mini-netflix-owenkelvin.netlify.com). The Backend is hosted can also be viewed at [https://owen-kelvin-mini-netflix.herokuapp.com](https://owen-kelvin-mini-netflix.herokuapp.com/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
 
