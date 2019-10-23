@@ -6,11 +6,14 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StoreModule } from '@ngrx/store';
 import * as fromAuth from '../store/reducers';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
+import { Router, RouterModule } from '@angular/router';
+import { NgbModalBackdrop } from '@ng-bootstrap/ng-bootstrap/modal/modal-backdrop';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -21,17 +24,22 @@ describe('LoginComponent', () => {
       imports: [
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireAuthModule,
+        RouterModule.forRoot([]),
         RouterTestingModule,
         FormsModule,
         ReactiveFormsModule,
-        NgbAlertModule,
+        NgbModule,
         StoreModule.forRoot({}),
         StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer),
         HttpClientModule
       ],
       declarations: [LoginComponent, LoginFormComponent]
-      // entryComponents: [LoginFormComponent]
-    }).compileComponents();
+    }).overrideModule(BrowserDynamicTestingModule, {
+      set: {
+        entryComponents: [LoginFormComponent]
+      }
+    });
+    // .compileComponents();
   }));
 
   beforeEach(() => {

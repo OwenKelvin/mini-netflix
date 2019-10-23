@@ -8,6 +8,8 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment.prod';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { RouterTestingModule } from '@angular/router/testing';
+import * as fromAuth from '../../auth/store/reducers';
+import { StoreModule } from '@ngrx/store';
 
 describe('MyMoviesComponent', () => {
   let component: MyMoviesComponent;
@@ -20,7 +22,9 @@ describe('MyMoviesComponent', () => {
         SharedModule,
         HttpClientModule,
         AngularFireModule.initializeApp(environment.firebase),
-        AngularFireAuthModule
+        AngularFireAuthModule,
+        StoreModule.forRoot({}),
+        StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer)
       ],
       declarations: []
     }).compileComponents();

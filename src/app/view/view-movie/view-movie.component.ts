@@ -17,16 +17,19 @@ export class ViewMovieComponent implements OnInit {
 
     // imageUrl
     const activatedRoute: ActivatedRoute = this.router.routerState.root;
-    activatedRoute.children[0].params.subscribe(params => {
-      if (params.id) {
-        this.movieService.getMovie(params.id).subscribe(results => {
-          this.movie = {
-            ...results,
-            backdrop_path: `${imageUrl}${results.backdrop_path}`,
-            poster_path: `${imageUrl}${results.backdrop_path}`
-          };
-        });
-      }
-    });
+    const routerChild = activatedRoute.children[0];
+    if (routerChild) {
+      routerChild.params.subscribe(params => {
+        if (params && params.id) {
+          this.movieService.getMovie(params.id).subscribe(results => {
+            this.movie = {
+              ...results,
+              backdrop_path: `${imageUrl}${results.backdrop_path}`,
+              poster_path: `${imageUrl}${results.backdrop_path}`
+            };
+          });
+        }
+      });
+    }
   }
 }

@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AllMoviesCarouselComponent } from './all-movies-carousel/all-movies-carousel.component';
 import { SharedModule } from '../shared/shared.module';
 import { FooterComponent } from '../shared/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -29,9 +30,10 @@ describe('HomeComponent', () => {
         StoreModule.forRoot({}),
         StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer),
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
+        HttpClientModule
       ],
-      declarations: [AllMoviesCarouselComponent, FooterComponent]
+      declarations: []
     }).compileComponents();
   }));
 
